@@ -68,4 +68,5 @@ gem 'capistrano3-puma'
 gem 'capistrano-rails' #Should already be in your Gemfile
 gem 'capistrano-bundler'
 gem 'capistrano-rvm'
+gem 'net-ssh'
 end
