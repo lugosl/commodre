@@ -3,8 +3,9 @@ lock "~> 3.14.1"
 set :application,	'commodre'
 set :repo_url, 		'git@github.com:lugosl/commodre.git'
 set :branch,:master
-set :deploy_to, 	"/home/deploy/commodre"
+set :deploy_to, 	"/home/deploy/#{fetch(:application)}"
 set :pty, 		true
+set :deploy_via,      :remote_cache
 #set :ssh_options,     forward_agent: true, user: fetch(:user), keys: %w(~/Descargas/qwikLABS-L2595-16320221.pem)
 #set :ssh_options[:forward_agent] = true
 #set :ssh_options, { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa) }
@@ -12,7 +13,7 @@ set :linked_files, 	%w{config/database.yml config/secrets.yml}
 set :linked_dirs, 	%w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 set :keep_releases, 5
 set :rvm_type, :user
-set :rvm_ruby_version, 	'ruby-2.4.0' # Should match ruby version
+set :rvm_ruby_version, 	'ruby-2.5.1' # Should match ruby version
 
 set :puma_rackup, -> { File.join(current_path, 'config.ru') }
 set :puma_state, "#{shared_path}/tmp/pids/puma.state"

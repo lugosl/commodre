@@ -69,4 +69,5 @@ gem 'capistrano-rails' #Should already be in your Gemfile
 gem 'capistrano-bundler'
 gem 'capistrano-rvm'
 gem 'net-ssh'
+gem 'capistrano-secrets-yml'
 end
