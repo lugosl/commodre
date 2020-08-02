@@ -3,7 +3,7 @@ lock "~> 3.14.1"
 set :application,	'commodre'
 set :repo_url, 		'git@github.com:lugosl/commodre.git'
 
-set :scm, :git
+set :git
 set :branch,:master
 
 set :user, "deploy"
@@ -17,12 +17,12 @@ set :deploy_to, 	"/home/deploy/#{fetch(:application)}"
 
 set :pty, 		true
 
-set :deploy_via, :copy
+set :deploy_via, :remote_cache
 #set :deploy_via,      :remote_cache
 #set :ssh_options,     forward_agent: true, user: fetch(:user), keys: %w(~/Descargas/qwikLABS-L2595-16320221.pem)
-set :ssh_options[:forward_agent] = true
-#set :ssh_options, { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa) }
-default_run_options[:pty] = true
+#set :ssh_options[:forward_agent] = true
+set :ssh_options, { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa) }
+#default_run_options[:pty] = true
 set :linked_files, 	%w{config/database.yml config/secrets.yml}
 set :linked_dirs, 	%w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 set :keep_releases, 5
